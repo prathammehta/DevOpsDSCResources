@@ -16,9 +16,7 @@ configuration DNSServerRun
 
     $securePassword = ConvertTo-SecureString -AsPlainText $DomainAdminPassword -Force;
     $DomainAdminCred = New-Object System.Management.Automation.PSCredential($DomainAdminUsername, $securePassword);
-   
-    Node $NodeName
-    { 
+
 	#ConfigurationBlock
     
         WindowsFeature DSCService {
@@ -49,5 +47,5 @@ configuration DNSServerRun
             DependsOn='[WindowsFeature]RSATTools'
         }
     #End Configuration Block    
-    } 
+ 
 }
